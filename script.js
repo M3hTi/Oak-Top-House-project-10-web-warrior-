@@ -13,6 +13,7 @@ let guests = 0;
 function setUpRoom(){
     let zIndex = 1;
     const roomLayout = document.querySelector(".room-layout");
+    console.dir(roomLayout);
     const tableIcons = document.querySelectorAll(".table");
     // console.log(tableIcons);
 
@@ -30,6 +31,18 @@ function setUpRoom(){
 
             const tableCopy = table.cloneNode(true);
             tableCopy.style.position = "absolute";
+
+             // Get table dimensions
+             const tableWidth = table.offsetWidth;
+             const tableHeight = table.offsetHeight;
+             
+             // Calculate maximum positions to keep table within bounds
+             const maxX = roomLayout.offsetWidth - tableWidth;
+             const maxY = roomLayout.offsetHeight - tableHeight;
+
+
+            tableCopy.style.left = `${Math.random() * maxX}px`;
+            tableCopy.style.top = `${Math.random() * maxY}px`;
             tableCopy.style.zIndex = zIndex;
             tableCopy.style.cursor = "move";
 
