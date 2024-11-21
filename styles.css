@@ -1,0 +1,148 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f1e6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #8c8c8c;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+}
+
+/* Main Content */
+.setup-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.instructions {
+    margin: 1rem 0;
+}
+
+/* Layout Container */
+.layout-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Room Layout */
+.room-layout {
+    flex: 1;
+    background-color: #ffb4b4;
+    height: 500px;
+    position: relative;
+    border: 2px solid #666;
+}
+
+.guest-counter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+}
+
+/* Table Storage */
+.table-storage {
+    width: 200px;
+    background-color: #fff;
+    padding: 1rem;
+    border: 2px solid #666;
+}
+
+.table-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Table Styles */
+.table {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.round-large {
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.round-small {
+    border-radius: 50%;
+    background-color: #eee;
+    transform: scale(0.8);
+}
+
+.rectangular {
+    width: 80px;
+    height: 40px;
+    background-color: #ddd;
+}
+
+.square {
+    background-color: #eee;
+}
+
+/* Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #8c8c8c;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Room Info */
+.room-info {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .table-storage {
+        width: 100%;
+    }
+
+    .room-layout {
+        height: 300px;
+    }
+} 
