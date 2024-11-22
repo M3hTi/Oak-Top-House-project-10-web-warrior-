@@ -51,6 +51,9 @@ function setUpRoom(){
             
             zIndex++;
 
+            tableCopy.addEventListener('pointerdown', (e) => {
+                grabTable(e)
+            });
         });
     }
 
@@ -59,6 +62,12 @@ function setUpRoom(){
 
 function guestsCount(counter){
     return guests += counter;
+}
+
+
+
+function grabTable(e) {
+    console.log(e);
 }
 
 window.addEventListener("load", setUpRoom);
