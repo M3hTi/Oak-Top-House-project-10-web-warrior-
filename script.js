@@ -9,11 +9,11 @@ const tableStorage = {
 }
 
 let guests = 0;
+let startingX, startingY;
+let tableX, tableY;
+let zIndex = 1;
 
 function setUpRoom(){
-    let startingX, startingY;
-    let tableX, tableY;
-    let zIndex = 1;
     const roomLayout = document.querySelector(".room-layout");
     console.dir(roomLayout);
     const tableIcons = document.querySelectorAll(".table");
@@ -54,7 +54,7 @@ function setUpRoom(){
             zIndex++;
 
             tableCopy.addEventListener('pointerdown', (e) => {
-                grabTable(e,zIndex)
+                grabTable(e)
             });
         });
     }
@@ -68,7 +68,7 @@ function guestsCount(counter){
 
 
 
-function grabTable(e, zIndex) {
+function grabTable(e) {
     e.target.style.touchAction = "none";
     startingX = e.clientX;
     startingY = e.clientY;
@@ -81,6 +81,21 @@ function grabTable(e, zIndex) {
     e.target.addEventListener("pointermove", moveTable);
     e.target.addEventListener("pointerup", releaseTable);
 }
+
+
+function moveTable(e) {
+    const dx = e.clientX - startingX;
+    const dy = e.clientY - startingY;
+    e.target.style.left = `${tableX + dx}px`;
+    e.target.style.top = `${tableY + dy}px`;
+}
+
+
+function releaseTable(e) {
+    e.target.removeEventListener("pointermove", moveTable);
+    e.target.removeEventListener("pointerup", releaseTable);
+}
+
 
 window.addEventListener("load", setUpRoom);
 
