@@ -11,7 +11,8 @@ const tableStorage = {
 let guests = 0;
 
 function setUpRoom(){
-    let staringX, staringY;
+    let startingX, startingY;
+    let tableX, tableY;
     let zIndex = 1;
     const roomLayout = document.querySelector(".room-layout");
     console.dir(roomLayout);
@@ -69,10 +70,16 @@ function guestsCount(counter){
 
 function grabTable(e, zIndex) {
     e.target.style.touchAction = "none";
-    staringX = e.offsetX;
-    staringY = e.offsetY;
+    startingX = e.clientX;
+    startingY = e.clientY;
     zIndex ++;
     e.target.style.zIndex = zIndex;
+
+    tableX = e.target.offsetLeft;
+    tableY = e.target.offsetTop;
+
+    e.target.addEventListener("pointermove", moveTable);
+    e.target.addEventListener("pointerup", releaseTable);
 }
 
 window.addEventListener("load", setUpRoom);
