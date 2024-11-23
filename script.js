@@ -78,6 +78,18 @@ function grabTable(e) {
     tableX = e.target.offsetLeft;
     tableY = e.target.offsetTop;
 
+
+    if(e.shiftKey){
+        console.log(e.target);
+        // console.dir(e.target)
+        const tableType = e.target.classList[1];
+        const tableCount = tableStorage.tables[tableType];
+        guests = guestsCount(-tableCount);
+        const guestCounter = document.querySelector(".guest-counter");
+        guestCounter.textContent = `Rose Room (Guests: ${guests})`;
+        e.target.parentElement.removeChild(e.target);
+    }
+
     e.target.addEventListener("pointermove", moveTable);
     e.target.addEventListener("pointerup", releaseTable);
 }
