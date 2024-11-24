@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oak Top House - Directions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+    <header>
+        <h1>Oak Top House</h1>
+        <nav>
+            <a href="index.html">Setup</a>
+            <a href="direction.html" class="active">Directions</a>
+        </nav>
+    </header>
+
+    <main class="directions-container">
+        <h2>How to Find Us</h2>
+        <div class="map-container">
+            <!-- Google Maps embed -->
+            <div id="map"></div>
+        </div>
+        <div class="directions-info">
+            <h3>Address</h3>
+            <p>123 Conference Drive<br>Oak City, ST 12345</p>
+            
+            <h3>Driving Directions</h3>
+            <ul>
+                <li>From Highway 100, take exit 25</li>
+                <li>Turn right onto Conference Drive</li>
+                <li>Continue for 0.5 miles</li>
+                <li>Oak Top House will be on your right</li>
+            </ul>
+            
+            <h3>Parking</h3>
+            <p>Free parking is available in our main lot directly in front of the building.</p>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="direction.js"></script>
+</body>
+</html>
