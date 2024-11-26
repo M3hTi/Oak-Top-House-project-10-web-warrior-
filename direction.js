@@ -1,6 +1,8 @@
 function initMap() {
+    const oakTopHouse = [50, 8];
+        
     const map  = L.map('map', {
-        center:[50, 8],
+        center: oakTopHouse,
         zoom: 15
     })
 
@@ -10,7 +12,7 @@ function initMap() {
 
 
     
-    L.marker([50, 8]).addTo(map).bindPopup('Oak Top House').openPopup();
+    L.marker(oakTopHouse).addTo(map).bindPopup('Oak Top House').openPopup();
 
     // console.log(navigator);
 
@@ -18,11 +20,19 @@ function initMap() {
 
     function getPos(pos) {
         // console.log(pos);
-        const myPos = {}
-        myPos["lat"] = pos.coords.latitude;
-        myPos["lng"] = pos.coords.longitude;
+        const myPos = [pos.coords.latitude, pos.coords.longitude];
         console.log(myPos);
         L.marker(myPos).addTo(map).bindPopup('Your Location').openPopup();
+
+        L.Routing.control({
+            waypoints: [
+                L.latLng(myPos),
+                L.latLng(oakTopHouse)
+            ],
+            lineOptions: {
+                styles: [{ color: '#6FA1EC', weight: 4 }]
+            }
+        }).addTo(map);
     }
 
     function handleError(err) {
